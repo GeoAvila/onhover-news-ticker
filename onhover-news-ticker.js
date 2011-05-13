@@ -21,48 +21,52 @@
         $.extend( settings, options );
       }
         // textanimate plugin code
+        var $text_animate=$(this).html();
+        $(this).html('<div class="text_container"></div>');
+        $(this).find('.text_container').append($text_animate+$text_animate);
         var $container=$(this);
-        var $text_animate=$(this).find('span').html();
-        $(this).find('span').remove();
-        $container.css('width',settings.width+'px');   $container.css('overflow','hidden');
+        $container.css('width',settings.width+'px');                                     $container.css('overflow','hidden');
         $container.css('height',settings.height+'px');
-        $container.append('<div id="text_container_s"><span>'+$text_animate +' | </span><span>'+$text_animate +' | </span></div>');
-        var $text_container=$('#text_container_s');
+        var $text_container=$(this).find('.text_container');
         $text_container.css('width','1000px');
-        var $text_width=$('#text_container_s span').width();
-        var $cont_anim=$('#text_container_s span:first');
+        var $text_width=$text_container.find('span').width();
+        var $cont_anim=$text_container.find('span').first();
         var $move_param = $text_width-settings.width;
         var $stop = false; 
-		$(" #text_container_s").mouseover(function() {
-			$stop=true; 
-			movement(); 
-		});
-		$(" #text_container_s").mouseleave(function() {
-			$stop=false;
-		}); 
+        $text_container.mouseover(function() {
+            $stop=true; 
+            movement(); 
+        });
+        $text_container.mouseleave(function() {
+            $stop=false;
+        }); 
         function movement(){
-            var $cont_anim=  $('#text_container_s span:first') ;
-          
-			$cont_anim.animate({
-				marginLeft: '-='+($text_width)+'',
-				}, settings.speed, function() {
-				$('#text_container_s').append('<span>'+$text_animate +' | </span>');
-				$('#text_container_s span:first').remove();
-			if($stop!=false)
-				{   
-					movement();
-				}
-			});
+            var $cont_anim=  $text_container.find('span').first();
+            $cont_anim.animate({
+                marginLeft: '-='+($text_width)+'',
+                }, settings.speed, function() {
+                $text_container.append($text_animate);
+                $text_container.find('span').first().remove();
+            if($stop!=false)
+                {   
+                    movement();
+                }
+            });
     
         };
-         function gostop(object){
-            var $cont_anim=$(object).find('span').first();
+         function gostop(){
+            var $cont_anim=$text_container.find('span').first();
           $cont_anim.animate({
             marginLeft:'0px',
           }, settings.speed);
           this.stop();
         }; 
     });
-
   };
 })( jQuery );
+
+
+
+
+
+
