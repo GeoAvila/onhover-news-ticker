@@ -1,7 +1,7 @@
 /*!
  * jQuery news on hover news ticket Plugin
  * Autor Geovanny G. Avila @GeoAvila
- * Version: 1.00 (12-MAY-2011)
+ * Version: 0.3 (25-MAY-2011)
  * Dual licensed under the MIT and GPL licenses.
  * Requires: jQuery v1.5.2 or later
  */
