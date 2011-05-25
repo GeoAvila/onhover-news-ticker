@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>GeoAvila On Hover News Ticker</title>
+  <style type='text/css'>
+    .text_container span{text-transform:uppercase;font-weight:bold;}
+  </style>
+<script src="http://code.jquery.com/jquery-1.5.2.min.js" type="text/javascript">
+</script>
+<script src="onhover-news-ticker.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.container').textanimate({
+      'width'         : 150,
+      'height'         : 20,
+      'speed' : 20000,
+	  'padding' : 100,
+	  'on_hover' : false
+});
+});
+</script>  
+</head>
+<body>
+  <div class="container" >
+    <span>
+Online VMware Forum 2011 Una conferencia virtual
+    </span>
+</div>
+
+  
+</body>
+
+
+</html>
+
